@@ -54,11 +54,11 @@ def check_db_file():
         multi = 1
         # Logging backup transaction
         logging_file(message='Databases file found...')
-        logging_file(message='Starting backup of all dbs listed in file (' + DB_NAME + ')')
+        logging_file(message='Starting backup of all dbs listed in file ({})'.format(DB_NAME))
     else:
         # Logging backup transaction
         logging_file(message='Databases file not found...')
-        logging_file(message='Starting backup of database named (' + DB_NAME + ')')
+        logging_file(message='Starting backup of database named ({})'.format(DB_NAME))
         multi = 0
     return multi
 
