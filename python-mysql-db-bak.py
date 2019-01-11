@@ -82,7 +82,7 @@ def db_backup_proc():
            gzipcmd = "gzip " + pipes.quote(TODAYBACKUPPATH) + "/" + db + ".sql"
            os.system(gzipcmd)
            # Logging backup transaction
-           logging_file(message='Database named (' + db + ') has been backup.')
+           logging_file(message='Database named ({}) has been backup.'.format(db))
            p = p + 1
        dbfile.close()
     else:
@@ -92,7 +92,7 @@ def db_backup_proc():
        gzipcmd = "gzip " + pipes.quote(TODAYBACKUPPATH) + "/" + db + ".sql"
        os.system(gzipcmd)
        # Logging backup transaction
-       logging_file(message='Database named (' + db + ') has been backup.')
+       logging_file(message='Database named ({}) has been backup.'.format(db))
 
 def del_backup():
         global BACKUP_PATH
@@ -101,7 +101,7 @@ def del_backup():
         del_folder_name = current_cwd[:-4]
         for x in del_folder_name:
             shutil.rmtree(BACKUP_PATH + x)
-            logging_file(message='Deleted old backup folder named (' + x + ')')
+            logging_file(message='Deleted old backup folder named ({})'.format(x))
 
 db_backup_proc()
 del_backup()
